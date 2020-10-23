@@ -1,0 +1,164 @@
+/* *{
+  margin: 0;
+padding: 0;
+
+} */
+*{
+  display: flex;
+flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+title{
+  display: none;
+}
+
+body{
+  font-family: sans-serif;
+  width: 800px;
+  background: white;
+  border-style: solid ;
+  box-shadow: 0 9px 18px 9px;
+  /* background-image:url("images/bats.gif"); */
+}
+aside{
+width: 80%;
+text-indent: 25px;
+margin-top: 20px;
+}
+
+header{
+float:left;
+padding-right: 580px;
+align-items: flex-start;
+padding-bottom: 10px;
+}
+
+main{
+  border-bottom: 3px solid black;
+  padding-left: 90px;
+  padding-right:45px;
+margin: auto;
+
+background-image: -webkit-linear-gradient(45deg, white 0%, orange 80%, black 100%);
+
+}
+
+#pumpkinImg{
+  float: left;
+}
+#pageTitle{
+font-size: 300%;
+margin: 0;
+float:left;
+position: absolute;
+align-self: flex-start;
+padding-bottom: 50px;
+margin-top: auto;
+
+}
+
+#headingOne{
+  font-size: 150%;
+margin: 0;
+float:left;
+position: absolute;
+align-self: flex-start;
+margin-top: 20px;
+text-indent: 30px;
+
+}
+
+#labels{
+  /* margin-top: 0px;
+  padding-top: 0px;
+  padding-right: 300px;
+  padding-bottom: 0px;
+  position: absolute; */
+  float: left;
+padding-left: 200px;
+position: absolute;
+align-items: flex-start;
+
+}
+
+.links{
+  padding-right: 400px;
+align-self: flex-start;
+text-align: left;
+}
+li{
+  align-self: flex-start;
+  display: list-item;
+
+}
+
+a{
+  color:orange;
+  font-weight: bold;
+  margin-left: auto;
+
+
+}
+a:visited{
+  color: orange;
+}
+a:hover{
+  color:green;
+}
+
+#welcomeMssg::first-letter{
+  font-size: 300%;
+  display:inherit;
+}
+
+p b span{
+  padding-right: 330px;
+}
+p b span:first-letter {
+    font-size: 350%; !important;
+}
+span{display:block}
+footer{
+  font-size: 80%;
+  text-align: center;
+  padding-left: 230px;
+  padding-right: 230px;
+  border-top: 3px solid black;
+display: inline-block;
+width:340px;
+background-image: -webkit-linear-gradient(45deg, white 0%, orange 80%, black 100%);
+
+}
+h2{
+  font-weight: bold;
+  margin-right: auto;
+  padding: 0;
+  margin: 0;
+  padding-right: 520px;
+
+}
+#gaurentee{
+align-self: flex-start;
+padding-left: 30px;
+}
+#returnPolicy{
+  align-self: flex-start;
+  padding-left: 28px;
+  display: inline-block;
+  margin-right: auto;
+  padding-bottom: 30px;
+
+}
+#boldedTxt{
+  font-weight: bold;
+  padding-right: 70px;
+display:inline-block;
+}
+p{
+  padding-left: 30px;
+
+}
+html{
+    background-image: url(../images/bats.gif);
+  }

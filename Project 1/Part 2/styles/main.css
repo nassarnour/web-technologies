@@ -1,0 +1,42 @@
+
+
+*{
+  font-family: sans-serif;
+}
+
+header{
+float:left;
+}
+aside{
+  text-indent: 20px;
+}
+#pumpkinImg{
+  float: left;
+}
+#pageTitle{
+color: orange;
+text-shadow:1px 2px 3px black;
+font-size: 200%;
+font-style: italic;
+}
+a{
+  color:orange;
+  font-weight: bold;
+}
+a:visited{
+  color: orange;
+}
+a:hover{
+  color:green;
+}
+
+#welcomeMssg::first-letter{
+  font-size: 200%
+}
+footer{
+  font-size: 80%;
+  text-align: center;
+}
+h2{
+  font-weight: bold;
+}
