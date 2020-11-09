@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-Tac-Toe</title>
+
+    <!-- Link index.html to styles.css  -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Google Font Using API
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet"> -->
+
+    <!-- favicon -->
+
+</head>
+<body>
+
+    <header class="container">
+        <h1>Tic-Tac-Toe</h1>
+        <div id="pTurn" class="container">
+            <span id="playerTurn">Welcome. Choose a mode and Press Start to play!</span>
+        </div>
+        <!-- <span id="gamesPlayed"></span> -->
+        <span id="timer">
+            <div id="startTime">Start Time:</div>
+            <div id="endTime">End Time:</div>
+            <br>
+            <div class="container">
+                <div class="controls">
+                    <!-- <h3>Player versus..</h3> -->
+                    <input class="radioButton" type="radio" name="player"
+                           id="pVc" value="Computer" checked>Player vs Computer
+                    <input class="radioButton" type="radio" name="player"
+                           id="pVp" value="Human">Player vs Player
+                </div>
+                <br>
+                <!-- <input type="button" class="btnCtrl" id="startBtn" value="Start/Restart">
+                <input type="button" class="btnCtrl" id="startBtn" value="Start/Restart">
+    
+                <input type="button" class="btnCtrl" id="playAgainBtn" value="Play Again?"
+                       style="display: none"> -->
+    
+                       <input type="button" class="btnCtrl" id="startBtn" value="Start">
+                      
+                       <input type="button" class="btnCtrl" id="resetBtn" value="Restart">
+    
+                       <input type="button" class="btnCtrl" id="playAgainBtn" value="Play Again?"
+                              style="display: none">
+            </div>
+        </span>
+        
+
+
+    </header><!-- end of header -->
+
+    <section id="main">
+        <table class="container boardContainer">
+            <!-- row 1 -->
+            <tr class="row">
+                <td id="square1" class="tile" ></td>
+                <td id="square2" class="tile" ></td>
+                <td id="square3" class="tile" ></td>
+            </tr>
+            <!-- row 2 -->
+            <tr class="row">
+                <td id="square4" class="tile" ></td>
+                <td id="square5" class="tile" ></td>
+                <td id="square6" class="tile" ></td>
+            </tr>
+            <!-- row 3 -->
+            <tr class="row">
+                <td id="square7" class="tile" ></td>
+                <td id="square8" class="tile" ></td>
+                <td id="square9" class="tile" ></td>
+            </tr>
+        </table><!-- end of table-->
+
+        <!-- shows whose turn it is -->
+        <!-- <div id="pTurn" class="container">
+            <span id="playerTurn">Welcome! Press Start/Restart to begin!</span>
+        </div> -->
+<br>
+        
+        
+
+        <!-- <footer class="container">
+            <div id="instrDtl">
+              <p> -> Click Start/Restart Once To Start The Game <- </p>
+              <p> -> Double-Click to Restart The Game <- </p>
+            </div>
+        </footer> -->
+
+    </section><!-- end of main section-->
+
+    <!-- custom js -->
+    <script src="js/script.js"></script>
+</body>
+</html>
