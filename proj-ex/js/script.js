@@ -1,4 +1,3 @@
-"use strict";
 
 var count = 0;
 var hrs = 0;
@@ -7,12 +6,8 @@ var secs = 0;
 var endTime= document.getElementById('endTime');
 var startTime= document.getElementById('startTime');
 
-
-
-// var pvpTurn = Math.floor(Math.random() * (1 - 0 + 1)) + 0;
-// var pvcTurn = Math.floor(Math.random() * (1 - 0 + 1)) + 0; //nour
-var pvpTurn = Math.floor(Math.random()*1); //nour
-var pvcTurn = Math.floor(Math.random()*1); //nour
+var pvpTurn = Math.floor(Math.random()*1);
+var pvcTurn = Math.floor(Math.random()*1); 
 
 var whoPlaying = "", timex = "", pvp = false, pvc = false, resetTime = false;
 var isGameWon = false, isGameDrawn = false, isGameOver = false, count = 0;
@@ -20,7 +15,7 @@ var isGameWon = false, isGameDrawn = false, isGameOver = false, count = 0;
 var $ = function(id){
     return document.getElementById(id);
 }
-//changed from var - nour
+
 function startGame (){
 var d=new Date();
 startTime.innerHTML="Start Time: "+  d.getHours() + ":" + d.getMinutes()+":"+d.getSeconds();
@@ -28,40 +23,16 @@ startTime.innerHTML="Start Time: "+  d.getHours() + ":" + d.getMinutes()+":"+d.g
     isGameOver = false;
     enableAllCells(); 
     currentGameSetting();
-    // $('hours').innerHTML = '00:'; $('mins').innerHTML = '00:'; $('secs').innerHTML = "00";
-    // $("gamesPlayed").innerHTML = "Games Played: " + count;
-    // startTimer();
     
 }
 
 
-//changed from var - nour
-function reset(){ //all dis nout
-    // $("playAgainBtn").style.display = 'none';
-    // $("playerTurn").style.display = 'initial';
-    // isGameWon = false, isGameDrawn = false, count++;
-    // $("gamesPlayed").innerHTML = "Games Played: " + count;
-    //
-    // // clear cell innerHTML
-    // $("square1").innerHTML = "", $("square2").innerHTML = "", $("square3").innerHTML = "";
-    // $("square4").innerHTML = "", $("square5").innerHTML = "", $("square6").innerHTML = "";
-    // $("square7").innerHTML = ""; $("square8").innerHTML = "", $("square9").innerHTML = "";
-    //
-    // //enable cell pointerEvents
-    // enableAllCells();
-    //
-    // //resetTimer
-    // isGameOver = false; resetTime = true;
-    // hrs = 0, mins = 0, secs = 0;
-    // $('hours').innerHTML = '00:'; $('mins').innerHTML = '00:'; $('secs').innerHTML = "00";
-    // startTimer();
+function reset(){ 
     location.reload();
-
 }
 
 function currentGameSetting(){
     if($("pVc").checked){
-        // $("playerTurn").innerHTML = "";
         playerVcomp();
     }else if($("pVp").checked){
         pvp = true;
@@ -69,41 +40,18 @@ function currentGameSetting(){
     }
 }
 
-//used to toggle between X player and O player
 function togglePlayer(){
     let letter = "";
     if(pvpTurn == 1){
-        // $("playerTurn").innerHTML = "It is X's turn"; //nour
         pvpTurn = 0;
         letter = 'X';
         return letter;
     } else if(pvpTurn == 0){
-        // $("playerTurn").innerHTML = "It is O's turn"; //nour
         pvpTurn = 1;
         letter = 'O';
         return letter;
     }
 }
-
-// function playerVplayer(){
-//     if(pvp)
-//         whoPlaying = togglePlayer();
-
-//     $("square1").addEventListener(
-//         "click", function(){$("square1").innerHTML = whoPlaying; 
-//         checkForWinner(); 
-//         $("square1").style.pointerEvents = 'none';
-//     });
-//     $("square2").addEventListener("click", function(){$("square2").innerHTML = whoPlaying; checkForWinner(); $("square2").style.pointerEvents = 'none';});
-//     $("square3").addEventListener("click", function(){$("square3").innerHTML = whoPlaying; checkForWinner(); $("square3").style.pointerEvents = 'none';});
-//     $("square4").addEventListener("click", function(){$("square4").innerHTML = whoPlaying; checkForWinner(); $("square4").style.pointerEvents = 'none';});
-//     $("square5").addEventListener("click", function(){$("square5").innerHTML = whoPlaying; checkForWinner(); $("square5").style.pointerEvents = 'none';});
-//     $("square6").addEventListener("click", function(){$("square6").innerHTML = whoPlaying; checkForWinner(); $("square6").style.pointerEvents = 'none';});
-//     $("square7").addEventListener("click", function(){$("square7").innerHTML = whoPlaying; checkForWinner(); $("square7").style.pointerEvents = 'none';});
-//     $("square8").addEventListener("click", function(){$("square8").innerHTML = whoPlaying; checkForWinner(); $("square8").style.pointerEvents = 'none';});
-//     $("square9").addEventListener("click", function(){$("square9").innerHTML = whoPlaying; checkForWinner(); $("square9").style.pointerEvents = 'none';});
-
-// }
 
 function switchPlayers(x)
 { var letter= "";
@@ -121,64 +69,59 @@ function playerVplayer(){
     debugger
     if(pvp)
         whoPlaying = togglePlayer();
-    if(whoPlaying=='X')
-    {
-        // $("square1").onclick(function(){
-            
-        //     document.getElementById("square1").innerHTML="X";
-        // checkForWinner();});
-        // $("square1").addEventListener(
-        //     "click", function(){$("square1").innerHTML = "X"; 
-        //     checkForWinner(); 
-        //     $("square1").style.pointerEvents = 'none';
-        // });
-        $("square2").addEventListener("click",
-             function(){
-                $("square2").innerHTML = "X";
+
+        if(whoPlaying=='X')
+        {
+        
+            $("box1").addEventListener(
+                "click", function(){$("box1").innerHTML = "X"; 
                 checkForWinner(); 
-                $("square2").style.pointerEvents = 'none';
+                $("box1").style.pointerEvents = 'none';
             });
-        $("square3").addEventListener("click",function(){$("square3").innerHTML = "X"; checkForWinner(); $("square3").style.pointerEvents = 'none';});
-        $("square4").addEventListener("click",function(){$("square4").innerHTML = "X"; checkForWinner(); $("square4").style.pointerEvents = 'none';});
-        $("square5").addEventListener("click", function(){$("square5").innerHTML = "X"; checkForWinner(); $("square5").style.pointerEvents = 'none';});
-        $("square6").addEventListener("click", function(){$("square6").innerHTML = "X"; checkForWinner(); $("square6").style.pointerEvents = 'none';});
-        $("square7").addEventListener("click", function(){$("square7").innerHTML = "X"; checkForWinner(); $("square7").style.pointerEvents = 'none';});
-        $("square8").addEventListener("click", function(){$("square8").innerHTML = "X"; checkForWinner(); $("square8").style.pointerEvents = 'none';});
-        $("square9").addEventListener("click", function(){$("square9").innerHTML = "X"; checkForWinner();         currentGameSetting();
-        $("square9").style.pointerEvents = 'none';});
-        whoPlaying=switchPlayers("O");    
-}
-
-    if(whoPlaying=='O')
-    {
-        // $("square1").onclick(function(){
-            
-        //     document.getElementById("square1").innerHTML="O";
-        // checkForWinner();});
-
-        // $("square1").addEventListener(
-        //     "click", function(){$("square1").innerHTML = "O"; 
-        //     checkForWinner(); 
-        //     $("square1").style.pointerEvents = 'none';
-        // });
-        $("square2").addEventListener( "click",function(){$("square2").innerHTML = "O"; checkForWinner(); $("square2").style.pointerEvents = 'none';});
-        $("square3").addEventListener("click", function(){$("square3").innerHTML = "O"; checkForWinner(); $("square3").style.pointerEvents = 'none';});
-        $("square4").addEventListener("click", function(){$("square4").innerHTML = "O"; checkForWinner(); $("square4").style.pointerEvents = 'none';});
-        $("square5").addEventListener("click", function(){$("square5").innerHTML = "O"; checkForWinner(); $("square5").style.pointerEvents = 'none';});
-        $("square6").addEventListener("click", function(){$("square6").innerHTML = "O"; checkForWinner(); $("square6").style.pointerEvents = 'none';});
-        $("square7").addEventListener("click", function(){$("square7").innerHTML = "O"; checkForWinner(); $("square7").style.pointerEvents = 'none';});
-        $("square8").addEventListener("click", function(){$("square8").innerHTML = "O"; checkForWinner(); $("square8").style.pointerEvents = 'none';});
-        $("square9").addEventListener("click",function(){$("square9").innerHTML = "O"; checkForWinner();         currentGameSetting();
-        $("square9").style.pointerEvents = 'none';});
-        whoPlaying=switchPlayers("O");
-
+            $("box2").addEventListener("click",
+                 function(){
+                    $("box2").innerHTML = "X";
+                    checkForWinner(); 
+                    $("box2").style.pointerEvents = 'none';
+                });
+            $("box3").addEventListener("click",function(){$("box3").innerHTML = "X"; checkForWinner(); $("box3").style.pointerEvents = 'none';});
+            $("box4").addEventListener("click",function(){$("box4").innerHTML = "X"; checkForWinner(); $("box4").style.pointerEvents = 'none';});
+            $("box5").addEventListener("click", function(){$("box5").innerHTML = "X"; checkForWinner(); $("box5").style.pointerEvents = 'none';});
+            $("box6").addEventListener("click", function(){$("box6").innerHTML = "X"; checkForWinner(); $("box6").style.pointerEvents = 'none';});
+            $("box7").addEventListener("click", function(){$("box7").innerHTML = "X"; checkForWinner(); $("box7").style.pointerEvents = 'none';});
+            $("box8").addEventListener("click", function(){$("box8").innerHTML = "X"; checkForWinner(); $("box8").style.pointerEvents = 'none';});
+            $("box9").addEventListener("click", function(){$("box9").innerHTML = "X"; checkForWinner();         currentGameSetting();
+            $("box9").style.pointerEvents = 'none';});
+            whoPlaying=switchPlayers("O");    
     }
+    
+        if(whoPlaying=='O')
+        {
+    
+            $("box1").addEventListener(
+                "click", function(){$("box1").innerHTML = "O"; 
+                checkForWinner(); 
+                $("box1").style.pointerEvents = 'none';
+            });
+            $("box2").addEventListener( "click",function(){$("box2").innerHTML = "O"; checkForWinner(); $("box2").style.pointerEvents = 'none';});
+            $("box3").addEventListener("click", function(){$("box3").innerHTML = "O"; checkForWinner(); $("box3").style.pointerEvents = 'none';});
+            $("box4").addEventListener("click", function(){$("box4").innerHTML = "O"; checkForWinner(); $("box4").style.pointerEvents = 'none';});
+            $("box5").addEventListener("click", function(){$("box5").innerHTML = "O"; checkForWinner(); $("box5").style.pointerEvents = 'none';});
+            $("box6").addEventListener("click", function(){$("box6").innerHTML = "O"; checkForWinner(); $("box6").style.pointerEvents = 'none';});
+            $("box7").addEventListener("click", function(){$("box7").innerHTML = "O"; checkForWinner(); $("box7").style.pointerEvents = 'none';});
+            $("box8").addEventListener("click", function(){$("box8").innerHTML = "O"; checkForWinner(); $("box8").style.pointerEvents = 'none';});
+            $("box9").addEventListener("click",function(){$("box9").innerHTML = "O"; checkForWinner();         currentGameSetting();
+            $("box9").style.pointerEvents = 'none';});
+            whoPlaying=switchPlayers("O");
+    
+        }
+
+    
+
+    
 
 
 }
-
-
-
 function playerVcomp(){
     if(pvcTurn == 1){
         checkForWinner();
@@ -190,47 +133,45 @@ function playerVcomp(){
     }
 }
 
-//print X only for pvc
 function printOnlyX(){
-    $("square1").addEventListener("click", function(){if($("pVp").checked) return; $("square1").innerHTML = 'X'; $("square1").pointerEvents = 'none'; pvcTurn = 0; checkForWinner(); if(!isGameOver) checkForEmptyCells();});
-    $("square2").addEventListener("click", function(){if($("pVp").checked) return; $("square2").innerHTML = 'X'; $("square2").pointerEvents = 'none'; pvcTurn = 0; checkForWinner(); if(!isGameOver) checkForEmptyCells();});
-    $("square3").addEventListener("click", function(){if($("pVp").checked) return; $("square3").innerHTML = 'X'; $("square3").pointerEvents = 'none'; pvcTurn = 0; checkForWinner(); if(!isGameOver) checkForEmptyCells();});
-    $("square4").addEventListener("click", function(){if($("pVp").checked) return; $("square4").innerHTML = 'X'; $("square4").pointerEvents = 'none'; pvcTurn = 0; checkForWinner(); if(!isGameOver) checkForEmptyCells();});
-    $("square5").addEventListener("click", function(){if($("pVp").checked) return; $("square5").innerHTML = 'X'; $("square5").pointerEvents = 'none'; pvcTurn = 0; checkForWinner(); if(!isGameOver) checkForEmptyCells();});
-    $("square6").addEventListener("click", function(){if($("pVp").checked) return; $("square6").innerHTML = 'X'; $("square6").pointerEvents = 'none'; pvcTurn = 0; checkForWinner(); if(!isGameOver) checkForEmptyCells();});
-    $("square7").addEventListener("click", function(){if($("pVp").checked) return; $("square7").innerHTML = 'X'; $("square7").pointerEvents = 'none'; pvcTurn = 0; checkForWinner(); if(!isGameOver) checkForEmptyCells();});
-    $("square8").addEventListener("click", function(){if($("pVp").checked) return; $("square8").innerHTML = 'X'; $("square8").pointerEvents = 'none'; pvcTurn = 0; checkForWinner(); if(!isGameOver) checkForEmptyCells();});
-    $("square9").addEventListener("click", function(){if($("pVp").checked) return; $("square9").innerHTML = 'X'; $("square9").pointerEvents = 'none'; pvcTurn = 0; checkForWinner(); if(!isGameOver) checkForEmptyCells();});
+    $("box1").addEventListener("click", function(){if($("pVp").checked) return; $("box1").innerHTML = 'X'; $("box1").pointerEvents = 'none'; pvcTurn = 0; checkForWinner(); if(!isGameOver) checkForEmptyCells();});
+    $("box2").addEventListener("click", function(){if($("pVp").checked) return; $("box2").innerHTML = 'X'; $("box2").pointerEvents = 'none'; pvcTurn = 0; checkForWinner(); if(!isGameOver) checkForEmptyCells();});
+    $("box3").addEventListener("click", function(){if($("pVp").checked) return; $("box3").innerHTML = 'X'; $("box3").pointerEvents = 'none'; pvcTurn = 0; checkForWinner(); if(!isGameOver) checkForEmptyCells();});
+    $("box4").addEventListener("click", function(){if($("pVp").checked) return; $("box4").innerHTML = 'X'; $("box4").pointerEvents = 'none'; pvcTurn = 0; checkForWinner(); if(!isGameOver) checkForEmptyCells();});
+    $("box5").addEventListener("click", function(){if($("pVp").checked) return; $("box5").innerHTML = 'X'; $("box5").pointerEvents = 'none'; pvcTurn = 0; checkForWinner(); if(!isGameOver) checkForEmptyCells();});
+    $("box6").addEventListener("click", function(){if($("pVp").checked) return; $("box6").innerHTML = 'X'; $("box6").pointerEvents = 'none'; pvcTurn = 0; checkForWinner(); if(!isGameOver) checkForEmptyCells();});
+    $("box7").addEventListener("click", function(){if($("pVp").checked) return; $("box7").innerHTML = 'X'; $("box7").pointerEvents = 'none'; pvcTurn = 0; checkForWinner(); if(!isGameOver) checkForEmptyCells();});
+    $("box8").addEventListener("click", function(){if($("pVp").checked) return; $("box8").innerHTML = 'X'; $("box8").pointerEvents = 'none'; pvcTurn = 0; checkForWinner(); if(!isGameOver) checkForEmptyCells();});
+    $("box9").addEventListener("click", function(){if($("pVp").checked) return; $("box9").innerHTML = 'X'; $("box9").pointerEvents = 'none'; pvcTurn = 0; checkForWinner(); if(!isGameOver) checkForEmptyCells();});
 }
 
 function checkForEmptyCells(){
     let rNmumber = Math.floor((Math.random() * 9) + 1);
 
-    var spot1 = $("square1").innerHTML, sqr2 = $("square2").innerHTML, sqr3 = $("square3").innerHTML;
-    var sqr4 = $("square4").innerHTML, sqr5 = $("square5").innerHTML, sqr6 = $("square6").innerHTML;
-    var sqr7 = $("square7").innerHTML, sqr8 = $("square8").innerHTML, sqr9 = $("square9").innerHTML;
+    var spot1 = $("box1").innerHTML, sqr2 = $("box2").innerHTML, sqr3 = $("box3").innerHTML;
+    var sqr4 = $("box4").innerHTML, sqr5 = $("box5").innerHTML, sqr6 = $("box6").innerHTML;
+    var sqr7 = $("box7").innerHTML, sqr8 = $("box8").innerHTML, sqr9 = $("box9").innerHTML;
 
     if(rNmumber == 1 && sqr1 == ""){
-        $("square1").innerHTML = "O"; checkForWinner(); $("square1").pointerEvents = 'none';
+        $("box1").innerHTML = "O"; checkForWinner(); $("box1").pointerEvents = 'none';
     } else if(rNmumber == 2 && sqr2 == ""){
-        $("square2").innerHTML = "O"; checkForWinner(); $("square2").pointerEvents = 'none';
+        $("box2").innerHTML = "O"; checkForWinner(); $("box2").pointerEvents = 'none';
     } else if(rNmumber == 3 && sqr3 == ""){
-        $("square3").innerHTML = "O"; checkForWinner(); $("square3").pointerEvents = 'none';
+        $("box3").innerHTML = "O"; checkForWinner(); $("box3").pointerEvents = 'none';
     } else if(rNmumber == 4 && sqr4 == ""){
-        $("square4").innerHTML = "O"; checkForWinner(); $("square4").pointerEvents = 'none';
+        $("box4").innerHTML = "O"; checkForWinner(); $("box4").pointerEvents = 'none';
     } else if(rNmumber == 5 && sqr5 == ""){
-        $("square5").innerHTML = "O"; checkForWinner(); $("square5").pointerEvents = 'none';
+        $("box5").innerHTML = "O"; checkForWinner(); $("box5").pointerEvents = 'none';
     } else if(rNmumber == 6 && sqr6 == ""){
-        $("square6").innerHTML = "O"; checkForWinner(); $("square6").pointerEvents = 'none';
+        $("box6").innerHTML = "O"; checkForWinner(); $("box6").pointerEvents = 'none';
     } else if(rNmumber == 7 && sqr7 == ""){
-        $("square7").innerHTML = "O"; checkForWinner(); $("square7").pointerEvents = 'none';
+        $("box7").innerHTML = "O"; checkForWinner(); $("box7").pointerEvents = 'none';
     } else if(rNmumber == 8 && sqr8 == ""){
-        $("square8").innerHTML = "O"; checkForWinner(); $("square8").pointerEvents = 'none';
+        $("box8").innerHTML = "O"; checkForWinner(); $("box8").pointerEvents = 'none';
     } else if(rNmumber == 9 && sqr9 == ""){
-        $("square9").innerHTML = "O"; checkForWinner(); $("square9").pointerEvents = 'none';
+        $("box9").innerHTML = "O"; checkForWinner(); $("box9").pointerEvents = 'none';
     } else{ checkForEmptyCells();}
 
-    // checkForWinner();
     pvcTurn = 1;
 }
 
@@ -243,28 +184,24 @@ isGameOver = true;
     if(isGameWon){
         alert("Player " + winner + " has won the match!");
         disableAllCells();
-        // $("playerTurn").style.display = 'none';
         $("playAgainBtn").style.display = 'initial';
         
 
     } else if(isGameDrawn){
         alert("Tie!");
         disableAllCells();
-        // $("playerTurn").style.display = 'none';
         $("playAgainBtn").style.display = 'initial';
     }
 }
 
-//checks rows, cols, and diags to determine winner
 function  checkForWinner(){
     if (isGameOver)
         return;
 
-    var sqr1 = $("square1").innerHTML, sqr2 = $("square2").innerHTML, sqr3 = $("square3").innerHTML;
-    var sqr4 = $("square4").innerHTML, sqr5 = $("square5").innerHTML, sqr6 = $("square6").innerHTML;
-    var sqr7 = $("square7").innerHTML, sqr8 = $("square8").innerHTML, sqr9 = $("square9").innerHTML;
+    var sqr1 = $("box1").innerHTML, sqr2 = $("box2").innerHTML, sqr3 = $("box3").innerHTML;
+    var sqr4 = $("box4").innerHTML, sqr5 = $("box5").innerHTML, sqr6 = $("box6").innerHTML;
+    var sqr7 = $("box7").innerHTML, sqr8 = $("box8").innerHTML, sqr9 = $("box9").innerHTML;
 
-    //check rows for win
     if(((sqr1=="X") || (sqr1=="O")) && ((sqr1 == sqr2) && (sqr2 == sqr3))){
         isGameWon = true; isWonOrDrawn(sqr1);
     } else if(((sqr4=="X") || (sqr4=="O")) && ((sqr4 == sqr5) && (sqr5 == sqr6))){
@@ -272,7 +209,7 @@ function  checkForWinner(){
     } else if(((sqr7=="X") || (sqr7=="O")) && ((sqr7 == sqr8) && (sqr8 == sqr9))){
         isGameWon = true; isWonOrDrawn(sqr7);
     }
-    //check cols for win
+
     else if(((sqr1=="X") || (sqr1=="O")) && ((sqr1 == sqr4) && (sqr4 == sqr7))){
         isGameWon = true; isWonOrDrawn(sqr1);
     } else if(((sqr2=="X") || (sqr2=="O")) && ((sqr2 == sqr5) && (sqr5 == sqr8))){
@@ -280,13 +217,13 @@ function  checkForWinner(){
     } else if(((sqr3=="X") || (sqr3=="O")) && ((sqr3 == sqr6) && (sqr6 == sqr9))){
         isGameWon = true; isWonOrDrawn(sqr3);
     }
-    //check diags for winner
+
     else if(((sqr1=="X") || (sqr1=="O")) && ((sqr1 == sqr5) && (sqr5 == sqr9))){
         isGameWon = true; isWonOrDrawn(sqr1);
     } else if(((sqr3=="X") || (sqr3=="O")) && ((sqr3 == sqr5) && (sqr5 == sqr7))){
         isGameWon = true; isWonOrDrawn(sqr3);
     }
-    //draw
+
     else if(sqr1 != "" && sqr2 != "" && sqr3 != "" && sqr4 != "" && sqr5 != "" &&
             sqr6 != "" && sqr7 != "" && sqr8 != "" && sqr9 != ""){
         isGameDrawn = true; isWonOrDrawn(sqr1);
@@ -294,57 +231,16 @@ function  checkForWinner(){
 }
 
 function disableAllCells() {
-    $("square1").style.pointerEvents = 'none', $("square2").style.pointerEvents = 'none', $("square3").style.pointerEvents = 'none';
-    $("square4").style.pointerEvents = 'none', $("square5").style.pointerEvents = 'none', $("square6").style.pointerEvents = 'none';
-    $("square7").style.pointerEvents = 'none', $("square8").style.pointerEvents = 'none', $("square9").style.pointerEvents = 'none';
+    $("box1").style.pointerEvents = 'none', $("box2").style.pointerEvents = 'none', $("box3").style.pointerEvents = 'none';
+    $("box4").style.pointerEvents = 'none', $("box5").style.pointerEvents = 'none', $("box6").style.pointerEvents = 'none';
+    $("box7").style.pointerEvents = 'none', $("box8").style.pointerEvents = 'none', $("box9").style.pointerEvents = 'none';
 }
 
 function enableAllCells(){
-    $("square1").style.pointerEvents = "all"; $("square2").style.pointerEvents = "all"; $("square3").style.pointerEvents = "all";
-    $("square4").style.pointerEvents = "all"; $("square5").style.pointerEvents = "all"; $("square6").style.pointerEvents = "all";
-    $("square7").style.pointerEvents = "all"; $("square8").style.pointerEvents = "all"; $("square9").style.pointerEvents = "all";
+    $("box1").style.pointerEvents = "all"; $("box2").style.pointerEvents = "all"; $("box3").style.pointerEvents = "all";
+    $("box4").style.pointerEvents = "all"; $("box5").style.pointerEvents = "all"; $("box6").style.pointerEvents = "all";
+    $("box7").style.pointerEvents = "all"; $("box8").style.pointerEvents = "all"; $("box9").style.pointerEvents = "all";
 }
-
-// function startTimer(){
-//     if (isGameOver){return;}
-
-//     if (resetTime){ clearTimeout(timex);}
-
-//     timex = setTimeout( function(){
-//         secs++;
-//         if(secs > 59){
-//             secs = 0;
-//             mins++;
-//             if(mins > 59){
-//                 mins = 0;
-//                 hrs++;
-//                 if(hrs < 10){
-//                     $('hours').innerHTML = "0"+ hrs + ":";
-//                 }else{
-//                     $('hours').innerHTML = hrs + ":";
-//                 }
-//             }
-//             if(mins < 10){
-//                 $('mins').innerHTML = "0"+ mins + ":";
-//             }else{
-//                 $('mins').innerHTML = mins + ":";
-//             }
-//         }
-//         if(secs < 10){
-//             $('secs').innerHTML = "0"+ secs;
-//         }else{
-//             $('secs').innerHTML = secs;
-//         }
-//         startTimer();
-//     }, 1000);
-// }
-
-// window.onload = function(){
-//     disableAllCells(); printOnlyX();
-//     $("startBtn").onclick = startGame;
-//     $("startBtn").ondblclick = reset;
-//     $("playAgainBtn").onclick = reset;
-// }
 
 window.addEventListener('load', function(){
   disableAllCells(); printOnlyX();
@@ -358,7 +254,4 @@ document.getElementById('resetBtn').onclick=function(){
 document.getElementById('playAgainBtn').onclick=function(){
     reset()
   };
-  // $("startBtn").onclick = startGame;
-  // $("startBtn").ondblclick = reset;
-
 });
