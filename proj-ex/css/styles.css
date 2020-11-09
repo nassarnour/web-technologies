@@ -3,21 +3,9 @@ body{
     color: #f59acf;
 }
 
-/* Header */
 header{
     margin-top: 50px;
 }
-
-/* input#comp.radioButton{
-    margin-left: 7px;
-} */
-
-/* #gamesPlayed{
-    float: right;
-    margin-top: -54px;
-    padding-right: 9px;
-    font-size: 11px;
-} */
 
 #timer{
     float: left;
@@ -29,12 +17,9 @@ header{
     text-align: center;
 }
 .radioButton{
-    /* margin-left: 10px; */
-        margin: 0 auto;
-
+     margin: 0 auto;
 }
 
-/* Body */
 table{
     table-layout: fixed;
     margin: 0 auto;
@@ -66,7 +51,3 @@ table{
     margin-left: 9px;
 }
 
-/* Footer
-#instrDtl{
-    color: #ffcd05;
-} */
