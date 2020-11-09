@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-tac-toe</title>
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <script src="scripts/play.js"></script>
+
+</head>
+<body>
+        <h2 id="welcome">Tic-Tac-Toe</h2>
+        <p id="welcomeMssg">Welcome, please choose a playing mode and then click the "Play!" button to begin. </p>    
+
+    
+    <header>
+        <aside>
+            <input type="radio" name="Player vs Player" id="playerVsPlayer">Player vs Player
+            <br>
+        </aside>
+        <div id="durationBlock">
+            <div id="startTime">Time Started:</div>
+            <div id="endTime">Time Ended:</div>
+            <div id="difference">Game Duration: </div>
+      </div>
+        <br>
+
+        <aside>
+            <input type="radio" name="Player vs Computer" id="playerVsComputer">Player vs Computer
+        </aside>
+
+<br>
+      <input type="button" value="Play!" id=playButton>
+<br>
+    </header>
+<br>
+    <div class="row">
+        <div class="column" style="background-color:#aaa;">
+          <h2>Column 1</h2>
+        </div>
+        <div class="column" style="background-color:#bbb;">
+          <h2>Column 2</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="column" style="background-color:#ccc;">
+          <h2>Column 3</h2>
+        </div>
+      </div>
+
+</body>
+</html>
