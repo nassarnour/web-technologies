@@ -42,10 +42,13 @@ function togglePlayer(){
     if(pvpTurn == 1){
         pvpTurn = 0;
         letter = 'X';
+        document.getElementById("playerTurn").innerHTML = "Player X should play";
+
         return letter;
     } else if(pvpTurn == 0){
         pvpTurn = 1;
         letter = 'O';
+        document.getElementById("playerTurn").innerHTML = "Player O should play";
         return letter;
     }
 }
