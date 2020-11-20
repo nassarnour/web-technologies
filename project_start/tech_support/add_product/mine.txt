@@ -1,0 +1,46 @@
+i had this in a table itself, no form
+
+<table style="border: 0px " >
+        <tr>
+            <td>
+                <form action="add_product.php" method="post">
+                Code:<input type="text" name="add_code">
+                </form>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <form action="add_product.php" method="post">
+                Name:<input type="text" name="add_name">
+                </form>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <form action="add_product.php" method="post">
+                Version:<input type="text" name="add_version">
+                </form>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <form action="add_product.php" method="post">
+                Release Date:<input type="text" name="add_releaseDate">
+                </form>
+            </td>  
+            <td>
+                Use 'yyy-mm-dd' format
+            </td>
+
+        </tr>
+        
+    <tr>
+        <td>
+            <input type="submit" value="Add Product">
+
+        </td>
+    </tr>
+    
+</table>

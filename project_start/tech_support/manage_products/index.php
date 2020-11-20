@@ -42,7 +42,7 @@ require('../model/database.php');
         <?php endforeach; ?>
     </table>
     <br>
-    <a href="../add_product/add_product.php">Add Product</a>
+    <a href="../add_product/index.php">Add Product</a>
     <nav>
 </main>
 

@@ -89,6 +89,11 @@ a:hover {
     color: #3333CC;
 }
 
+#addproductTable{
+    border:0px
+    color:blue;
+}
+
 table {
     border: 1px solid #001963;
     border-collapse: collapse;
