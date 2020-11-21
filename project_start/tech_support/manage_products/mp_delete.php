@@ -11,6 +11,6 @@ $product_code = filter_input(INPUT_POST, 'product_code');
     $statement->bindValue(':product_code', $product_code);
     $success = $statement-> execute();
     $statement-> closeCursor();
-
+[]
 include('index.php');
 ?>

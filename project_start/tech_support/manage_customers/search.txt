@@ -1,0 +1,63 @@
+<?php include '../view/header.php';
+require_once('../model/database.php');
+	$search_lastname= filter_input(INPUT_POST, 'search_lastname');
+    $search_lastname = htmlspecialchars($search_lastname);
+    
+    $querySearchLastName = "SELECT * FROM customers WHERE lastName= :search_lastname";
+    $execStatement = $db->prepare($querySearchLastName);
+   
+    $statement->bindValue(':search_lastname', $search_lastname);
+
+    $execStatement-> execute();
+
+    $customersList = $execStatement->fetchAll();
+    $execStatement-> closeCursor();
+
+?>
+
+<main>
+    <nav>
+    <h2>Customer Search</h2>
+    <form method="get" action=".">
+			<label for="search_lastname">Last Name: </label>
+            <input type="text" id="search_lastname" name="search_lastname">
+            <input type="submit" value="Search">
+
+            <br>
+</form>
+<h2>Results</h2>
+
+    <table>
+    <tr>
+      <td> <strong>Name </strong></td>
+      <td><strong>Email</strong></td>
+      <td><strong>City</strong></td>
+
+    </tr>
+        <?php
+        foreach($customersList as $custList) : ?>
+            <tr>
+                <td><?php echo $custList['firstName'];?> </td>
+                <td><?php echo $custList['email'];?> </td>
+                <td><?php echo $custList['city'];?> </td>
+                <td>
+                    <!-- <form id="mp_deleteForm" action="mp_delete.php" method="post" >
+                        <input type="button" value="Delete" id=mp_deleteBtn>
+                    </form> -->
+                    <!-- <button type="submit" method='mp_delete.php'>Delete</button> -->
+                    <form action="update_customers.php" method="post">
+                     <input type="hidden" name="customer_id"
+                        value="<?php echo $custList['customerID']; ?>">
+                     <input type="submit" value="Select">
+                    </form>
+                </td>
+                
+            </tr>
+        <?php endforeach; ?>
+    </table>
+    <br>
+    <a href="../add_product/index.php">Add Product</a>
+    <nav>
+</main>
+
+<?php include '../view/footer.php'; ?>
